@@ -43,3 +43,96 @@
         /* transform: translateY(0.1rem); */
     }
 }
+
+/* another neat trick for perfectly align to the center */
+.quote {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+}
+
+.quote-text {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: clamp(1.6rem, 2cqi, 3rem); /* cqi: container querry inside  */
+    line-height: 3rem;
+    color: #fdf151;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    width: clamp(25rem, 35cqi, 50rem); /* cqi: container querry inside: preferred value 35rem  */
+}
+
+.quote-author {
+    font-family: 'Comfortaa', cursive;
+    font-size: 2rem;
+    color: #888;
+    text-align: right;
+    font-style: italic;
+}
+
+/* quote icons */
+.quote i {
+    color: #ddd;
+    font-size: 3rem;
+}
+
+.right-quote {
+    text-align: right;
+}
+
+
+/* buttons */
+.buttons {
+    position: absolute;
+    bottom: 6rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    column-gap: 2rem;
+}
+
+.btn {
+   width: 22rem;
+   height: 5rem;
+   border-radius: 0.8rem;
+   padding: 0 1rem;
+   border: none;
+   font-size: 1.8rem;
+   text-wrap: none;
+   font-family: 'Comfortaa', cursive;
+   font-weight: 200;
+   color: #ddd;
+   text-transform: uppercase;
+   letter-spacing: 1px;
+   cursor: pointer;
+   box-shadow: 3rem 1rem 3rem rgba(25, 100, 165, 0.4);
+   text-shadow: -.3rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+   
+   &:hover {
+        color: #fff;
+        /* transform: scale(1.05); */
+   }
+
+   &:active {
+       transform: translateY(0.2rem); 
+   }
+}
+
+.btn-new {
+    background-image: linear-gradient(to left, #2e15bc, #8e7bf0);
+    
+    &:hover {
+        background-image: linear-gradient(to left, #2913a2, #6e60b4);
+    }
+}
+
+.btn-fav {
+    background-image: linear-gradient(to left, #2e6f79, #1b9bdd);
+
+    &:hover {
+        background-image: linear-gradient(to left, #265d65, #157aad);
+    }
+}
