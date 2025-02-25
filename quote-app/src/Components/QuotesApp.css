@@ -14,6 +14,7 @@
     border-radius: 3rem;
     padding: 4rem;
     box-shadow: -2rem 2rem 5rem rgba(0, 0, 0, 0.8);
+    overflow: hidden;
 }
 
 .app-header {
@@ -135,4 +136,49 @@
     &:hover {
         background-image: linear-gradient(to left, #265d65, #157aad);
     }
+}
+
+.circles div {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-1 {
+    width: clamp(5rem, 10cqi, 15rem);
+    aspect-ratio: 1 / 1;
+    background-image: linear-gradient(to top, #e1a821, #ffd780);
+    top: -6cqi;
+    left: 60%;
+}
+
+.circle-2 {
+    width: clamp(2rem, 4cqi, 15rem);
+    aspect-ratio: 1 / 1;
+    background-image: linear-gradient(to top, #e1a821, #ffd780);
+    bottom: 15cqi;
+    left: 7rem;
+}
+
+.circle-3 {
+    width: clamp(5rem, 10cqi, 16rem);
+    aspect-ratio: 1 / 1;
+    background-image: linear-gradient(to right, #553ddd, #7f69e8);
+    top: 50%;
+    right: -5cqi;
+}
+
+.circle-4 {
+    width: clamp(4rem, 10cqi, 16rem);
+    aspect-ratio: 1 / 1;
+    background-image: linear-gradient(to left, #ffa228, #dfd92a);
+    top: 30%;
+    left: -3rem;
+}
+
+.circle-5 {
+    width: clamp(5rem, 6cqi, 8rem);
+    aspect-ratio: 1 / 1;
+    background-image: linear-gradient(to top, #2b33a8, #e422fd);
+    bottom: -3rem;
+    right: 5rem;
 }

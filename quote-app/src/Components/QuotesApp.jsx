@@ -15,6 +15,7 @@ function QuotesApp() {
               <div className='circle-2'></div>
               <div className='circle-3'></div>
               <div className='circle-4'></div>
+              <div className='circle-5'></div>
             </div>
             <div className='buttons'>
               <button className='btn btn-new'>
