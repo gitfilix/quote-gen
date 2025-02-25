@@ -1,4 +1,14 @@
-function QuotesApp() {
+import { useState } from "react" 
+
+const QuotesApp =() => {
+  const [quote, setQuote] = useState({
+    text: 'The only way to do great work is to love what you do.',
+    author: 'Steve Jobs'
+  })
+
+
+
+
   return (
     <div className='container'>
         <div className='quote-app'>
@@ -6,8 +16,8 @@ function QuotesApp() {
             <i className='bx bxs-heart fav-icon'></i>
             <div className='quote'>
               <i className='bx bxs-quote-alt-left left-quote'></i>
-              <p className='quote-text'>“The only way to do great work is to love what you do.”</p>
-              <p className='quote-author'>- Steve Jobs</p>
+              <p className='quote-text'>{quote.text}</p>
+              <p className='quote-author'>- {quote.author}</p>
               <i className='bx bxs-quote-alt-right right-quote'></i>
             </div>
             <div className='circles'>
