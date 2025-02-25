@@ -3,10 +3,22 @@ import { useState } from "react"
 const QuotesApp =() => {
   const [quote, setQuote] = useState({
     text: 'The only way to do great work is to love what you do.',
-    author: 'Steve Jobs'
+    author: 'Steve Jobs',
+    category: 'Motivational'
   })
 
-
+  const fetchNewQuote = async () => {
+    // try this api
+    // https://api.api-ninjas.com/v1/quotes
+    const url = 'https://api.api-ninjas.com/v1/quotes'
+    const response = await fetch(url)
+    const data = await response.json()
+    setQuote({
+      text: data.quote,
+      author: data.author,
+      category: data.category
+    })
+  }
 
 
   return (
@@ -28,7 +40,7 @@ const QuotesApp =() => {
               <div className='circle-5'></div>
             </div>
             <div className='buttons'>
-              <button className='btn btn-new'>
+              <button className='btn btn-new' onClick={fetchNewQuote}>
                 New Quote
               </button>
               <button className='btn btn-fav'>
