@@ -86,9 +86,9 @@ const QuotesApp = (props) => {
             <div className="fav-quote-content">
               <div className="fav-quote-text">
                 The only way to do great work is to love what you do.
-              </div>
               <div className="fav-quote-author">
                 Steve Jobs
+              </div>
               </div>
             </div>
           </div>
