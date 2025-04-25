@@ -36,18 +36,20 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor: pointer;
-    text-shadow: -0.7rem 0.8rem 2rem rgba(17, 145, 180, 0.4);
+    text-shadow: -0.7rem 0.8rem 1.5rem rgba(17, 145, 180, 0.4);
+    transition: all 0.3s ease-out;
 
     &:hover {
-        color: #fdf151;
+        text-shadow: -0.7rem 0.8rem 2.5rem rgba(235, 254, 88, 0.4);
+        background-image: linear-gradient(to left, #2e6f79, #fdf151);
         transform: scale(1.2);
-        transition: all 0.2s ease-in;
+        transition: all 0.3s ease-in;
     }
 
     /* click animation pseudo effect */
     &:active {
         transform: scale(0.9);
-        /* transform: translateY(0.1rem); */
+        transform: translateY(0.1rem);
     }
 }
 

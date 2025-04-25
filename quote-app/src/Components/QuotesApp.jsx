@@ -13,9 +13,15 @@ const QuotesApp = (props) => {
 
   const apiKey = import.meta.env.VITE_REACT_APP_NINJA_API_KEY || 'no api key found';
 
+  const [favorites, setFavorites] = useState([])
   const [showFavorites, setShowFavorites] = useState(false)
+
   const toggleFavorites = () => {
     setShowFavorites(!showFavorites)
+  }
+
+  const addToFavorites = () => {
+    setFavorites([...favorites, quote])
   }
 
   const fetchNewQuote = async () => {
@@ -84,20 +90,21 @@ const QuotesApp = (props) => {
             <button className="btn-close" onClick={toggleFavorites}>
               <i className='bx bx-x'></i>
             </button>
-            <div className="fav-quote">
-              <div className="fav-quote-delete">
-                <i className='bx bx-x-circle'></i>
-              </div>
-              <div className="fav-quote-content">
-                <div className="fav-quote-text">
-                  The only way to do great work is to love what you do.
-                  <div className="fav-quote-author">
-                    Steve Jobs
+            {favorites.map((favQuote, index) => (
+              <div className="fav-quote" key={index}>
+                <div className="fav-quote-delete">
+                  <i className='bx bx-x-circle'></i>
+                </div>
+                <div className="fav-quote-content">
+                  <div className="fav-quote-text">
+                    The only way to do great work is to love what you do.
                   </div>
+                  <div className="fav-quote-author">Steve Jobs</div>
                 </div>
               </div>
-            </div>
-          </div>)}
+              ))}
+          </div>
+        )}
       </div>
     </div>
   )
