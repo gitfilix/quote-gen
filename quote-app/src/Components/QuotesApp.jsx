@@ -50,32 +50,50 @@ const QuotesApp = (props) => {
 
   return (
     <div className='container'>
-        <div className='quote-app'>
-            <h1 className='app-header'>{appTitle}.</h1>
-            <i className='bx bxs-heart fav-icon'></i>
-              <p className='quote-category'>About: {quote.category}</p>
-            <div className='quote'>
-              <i className='bx bxs-quote-alt-left left-quote'></i>
-              <p className='quote-text'>{quote.text}</p>
-              <p className='quote-author'>- {quote.author}</p>
-              <i className='bx bxs-quote-alt-right right-quote'></i>
-            </div>
-            <div className='circles'>
-              <div className='circle-1'></div>
-              <div className='circle-2'></div>
-              <div className='circle-3'></div>
-              <div className='circle-4'></div>
-              <div className='circle-5'></div>
-            </div>
-            <div className='buttons'>
-              <button className='btn btn-new' onClick={fetchNewQuote}>
-                New Quote
-              </button>
-              <button className='btn btn-fav'>
-                Add to Favorite
-              </button>
-            </div>
+      <div className='quote-app'>
+        <h1 className='app-header'>{appTitle}.</h1>
+        <i className='bx bxs-heart fav-icon'></i>
+        <p className='quote-category'>About: {quote.category}</p>
+        <div className='quote'>
+          <i className='bx bxs-quote-alt-left left-quote'></i>
+          <p className='quote-text'>{quote.text}</p>
+          <p className='quote-author'>- {quote.author}</p>
+          <i className='bx bxs-quote-alt-right right-quote'></i>
         </div>
+        <div className='circles'>
+          <div className='circle-1'></div>
+          <div className='circle-2'></div>
+          <div className='circle-3'></div>
+          <div className='circle-4'></div>
+          <div className='circle-5'></div>
+        </div>
+        <div className='buttons'>
+          <button className='btn btn-new' onClick={fetchNewQuote}>
+            New Quote
+          </button>
+          <button className='btn btn-fav'>
+            Add to Favorite
+          </button>
+        </div>
+        <div className="favorites">
+          <button className="btn-close">
+            <i className='bx bx-x'></i>
+          </button>
+          <div className="fav-quote">
+            <div className="fav-quote-delete">
+              <i className='bx bx-x-circle'></i>
+            </div>
+            <div className="fav-quote-content">
+              <div className="fav-quote-text">
+                The only way to do great work is to love what you do.
+              </div>
+              <div className="fav-quote-author">
+                Steve Jobs
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
