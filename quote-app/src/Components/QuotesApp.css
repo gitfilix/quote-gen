@@ -66,10 +66,18 @@
     width: clamp(25rem, 35cqi, 50rem); /* cqi: container querry inside: preferred value 35rem  */
 }
 
+.quote-category {
+    font-family: 'Julius sans one', sans-serif;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    color: #2e6f79;
+    text-align: center;
+}
+
 .quote-author {
     font-family: 'Comfortaa', cursive;
     font-size: 2rem;
-    color: #888;
+    color: #aff;
     text-align: right;
     font-style: italic;
 }
@@ -111,10 +119,13 @@
    cursor: pointer;
    box-shadow: 3rem 1rem 3rem rgba(25, 100, 165, 0.4);
    text-shadow: -.3rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+   animation: transform 0.3s ease-in;
    
    &:hover {
         color: #fff;
-        /* transform: scale(1.05); */
+        animation: transform 0.3s ease-in;
+        text-shadow: -.3rem 0.5rem 1rem rgba(0, 0, 0, 0.4);
+        transform: scale(1.1);
    }
 
    &:active {

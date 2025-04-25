@@ -1,31 +1,59 @@
-import { useState } from "react" 
+import { useState } from "react"
+import './QuotesApp.css'
 
-const QuotesApp =() => {
+
+
+const QuotesApp = (props) => {
+  const appTitle = props.title || 'no title found';
   const [quote, setQuote] = useState({
     text: 'The only way to do great work is to love what you do.',
     author: 'Steve Jobs',
     category: 'Motivational'
   })
 
+  const apiKey = import.meta.env.VITE_REACT_APP_NINJA_API_KEY || 'no api key found';
+
+
   const fetchNewQuote = async () => {
     // try this api
-    // https://api.api-ninjas.com/v1/quotes
     const url = 'https://api.api-ninjas.com/v1/quotes'
-    const response = await fetch(url)
-    const data = await response.json()
-    setQuote({
-      text: data.quote,
-      author: data.author,
-      category: data.category
-    })
+    const requestOptions = {
+      method: 'GET',
+      headers: {
+        'X-Api-Key': apiKey
+      }
+    }
+
+    try {
+      const response = await fetch(url, requestOptions)
+      const data = await response.json()
+      console.log('response:', response)
+      console.log('data:', data)
+      console.log('status:', response.status)
+
+      if (!response.ok) {
+        console.error(`Error: ${response.status} - ${response.statusText}`);
+        return
+      }
+      if (response.status === 200) {
+        setQuote({
+          text: data[0]?.quote || 'The only way to find out why there is not quote is to analyze the code. - Unknown',
+          author: data[0]?.author || 'Unknown',
+          category: data[0]?.category || 'Uncategorized'
+        })
+      }
+    } catch (error) {
+      console.error('Error fetching quote:', error)
+    }
   }
 
 
   return (
     <div className='container'>
         <div className='quote-app'>
-            <h1 className='app-header'>Quote.</h1>
+            <h1 className='app-header'>{appTitle}.</h1>
             <i className='bx bxs-heart fav-icon'></i>
+              <p className='quote-category'>About: {quote.category}</p>
             <div className='quote'>
               <i className='bx bxs-quote-alt-left left-quote'></i>
               <p className='quote-text'>{quote.text}</p>
