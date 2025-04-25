@@ -21,7 +21,11 @@ const QuotesApp = (props) => {
   }
 
   const addToFavorites = () => {
-    setFavorites([...favorites, quote])
+    // validate if the quote is already in favorites: some method test if the quote is already in favorites
+    const isAlreadyFavorite = favorites.some(fav => fav.text === quote.text && fav.author === quote.author)
+    if (!isAlreadyFavorite) {
+      setFavorites([...favorites, quote])
+    }
   }
 
   const fetchNewQuote = async () => {
@@ -37,9 +41,6 @@ const QuotesApp = (props) => {
     try {
       const response = await fetch(url, requestOptions)
       const data = await response.json()
-      console.log('response:', response)
-      console.log('data:', data)
-      console.log('status:', response.status)
 
       if (!response.ok) {
         console.error(`Error: ${response.status} - ${response.statusText}`);
@@ -81,8 +82,8 @@ const QuotesApp = (props) => {
           <button className='btn btn-new' onClick={fetchNewQuote}>
             New Quote
           </button>
-          <button className='btn btn-fav'>
-            Add to Favorite
+          <button className='btn btn-fav' onClick={addToFavorites}>
+            Add to Favorites
           </button>
         </div>
         {showFavorites && (
@@ -93,13 +94,16 @@ const QuotesApp = (props) => {
             {favorites.map((favQuote, index) => (
               <div className="fav-quote" key={index}>
                 <div className="fav-quote-delete">
-                  <i className='bx bx-x-circle'></i>
+                  <i className='bx bx-x-circle' onClick={() => {
+                    const updatedFavorites = favorites.filter((quote) => quote !== favQuote)
+                    setFavorites(updatedFavorites)}
+                  }></i>
                 </div>
                 <div className="fav-quote-content">
                   <div className="fav-quote-text">
-                    The only way to do great work is to love what you do.
+                   {favQuote.text}
                   </div>
-                  <div className="fav-quote-author">Steve Jobs</div>
+                  <div className="fav-quote-author">{favQuote.author}</div>
                 </div>
               </div>
               ))}

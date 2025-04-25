@@ -19,5 +19,5 @@ npm run deploy
 ```
 
 ## using the ninja quote generator
-https://api.api-ninjas.com/v1/quotes
+https://api.api-ninjas.com
 
