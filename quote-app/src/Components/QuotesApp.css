@@ -41,7 +41,7 @@
 
     &:hover {
         text-shadow: -0.7rem 0.8rem 2.5rem rgba(235, 254, 88, 0.4);
-        background-image: linear-gradient(to left, #2e6f79, #fdf151);
+        background-image: linear-gradient(to left, #2e6f79, #fff78a);
         transform: scale(1.2);
         transition: all 0.3s ease-in;
     }
