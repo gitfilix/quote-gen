@@ -74,17 +74,24 @@
     width: clamp(25rem, 35cqi, 50rem); /* cqi: container querry inside: preferred value 35rem  */
 }
 
+.quote-about {
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8rem;
+    color: #2e6f79;
+    text-align: right;
+}
 .quote-category {
     font-family: 'Julius sans one', sans-serif;
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     text-transform: capitalize;
-    color: #2e6f79;
+    color: #aff;
     text-align: center;
 }
 
+
 .quote-author {
-    font-family: 'Comfortaa', cursive;
-    font-size: 2rem;
+    font-family: 'Julius sans one', sans-serif;
+    font-size: 1.8rem;
     color: #aff;
     text-align: right;
     font-style: italic;
@@ -211,6 +218,27 @@
     inset: 0;
     background-image: linear-gradient(to left, #386e6c, #207ead);
     padding: 3rem 7rem 3rem 7rem;
+    overflow-y: auto;
+}
+
+/* nit-picking to make scrollbar styles nice -  if many quotes in favorites */
+.favorites::-webkit-scrollbar {
+    width: 2.8rem;
+}
+
+.favorites::-webkit-scrollbar-track {
+    background-color: #386e6c;
+}
+
+.favorites::-webkit-scrollbar-thumb {
+    background-color: #4e9b9f;
+    border-radius: 0.4rem;
+}
+
+.favorites::-webkit-scrollbar-thumb:hover {
+    background-color: #ace4e3;
+    border-radius: 0.6rem;
+    cursor: grab;
 }
 
 .fav-quote {
@@ -262,3 +290,21 @@
     color: #ddd;
 }
  
+/* media queries  - wrapper */
+@media (max-width: 850px) {
+    .quote-app {
+        width: 75vmin;
+        aspect-ratio: 2 /3 ;   
+    }
+}
+
+@media (max-width: 550px) {
+    .quote-app {
+        aspect-ratio: 1 / 2;   
+    }
+
+    .buttons {
+        flex-direction: column;
+        row-gap: 3rem;
+    }
+}

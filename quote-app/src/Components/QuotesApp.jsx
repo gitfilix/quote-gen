@@ -62,9 +62,9 @@ const QuotesApp = (props) => {
   return (
     <div className='container'>
       <div className='quote-app'>
-        <h1 className='app-header'>{appTitle}.</h1>
+        <h1 className='app-header'>{appTitle}</h1>
+        <span className='quote-about'>About: <span className='quote-category'>{quote.category}</span></span>
         <i className='bx bxs-heart fav-icon' onClick={toggleFavorites}></i>
-        <p className='quote-category'>About: {quote.category}</p>
         <div className='quote'>
           <i className='bx bxs-quote-alt-left left-quote'></i>
           <p className='quote-text'>{quote.text}</p>
